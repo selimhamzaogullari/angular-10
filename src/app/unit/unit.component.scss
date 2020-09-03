@@ -1,0 +1,11 @@
+.ages {
+  margin-bottom: 2rem;
+  .ages-box {
+    border: 1px solid #c8c8c8;
+    padding: 3px 10px;
+    cursor: pointer;
+    &.active {
+      background-color: #c8c8c8;
+    }
+  }
+}

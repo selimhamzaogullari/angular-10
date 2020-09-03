@@ -1,0 +1,37 @@
+<div class="text-center">
+    <div class="title">Units Page</div>
+
+    <div class="ages d-flex align-items-center">
+        <div class="ages-box" *ngFor="let name of agesArr" (click)="activeAges = name" [class.active]="activeAges === name">
+            <span>{{name}}</span>
+        </div>
+    </div>
+
+    <table class="table" *ngIf="units">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let unit of units">
+            <th scope="row">{{unit.id}}</th>
+            <td>{{unit.name}}</td>
+            <td>{{unit.age}}</td>
+            <td>
+                <ng-container *ngIf="unit.cost">
+          <span *ngFor="let item of objectKeys(unit.cost)">
+            {{item + ': ' + unit.cost[item]}}
+          </span>
+                </ng-container>
+                <ng-container *ngIf="!unit.cost">
+                    -
+                </ng-container>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
