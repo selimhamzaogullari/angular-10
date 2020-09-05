@@ -10,6 +10,8 @@ import { UnitDetailComponent } from './unit-detail/unit-detail.component';
 import {UnitService} from "./services/unit.service";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from "@ngrx/store";
+import {Ng5SliderModule} from "ng5-slider";
+import {unitReducer} from "./unit/state/unit.reducer";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {StoreModule} from "@ngrx/store";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {})
+    Ng5SliderModule,
+    StoreModule.forRoot({unit: unitReducer})
   ],
   providers: [UnitService],
   bootstrap: [AppComponent]

@@ -1,13 +1,33 @@
-<div class="text-center">
+<div class="text-center units">
     <div class="title">Units Page</div>
 
+    <div class="text-left filter-title">Costs</div>
+    <div class="costs d-flex align-items-start flex-column">
+        <div class="costs-box">
+            <input id="wood" type="checkbox">
+            <label for="wood">Wood</label>
+            <ng5-slider [(value)]="value" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+        </div>
+        <div class="costs-box">
+            <input id="food" type="checkbox">
+            <label for="food">Food</label>
+            <ng5-slider [(value)]="value" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+        </div>
+        <div class="costs-box">
+            <input id="gold" type="checkbox">
+            <label for="gold">Gold</label>
+            <ng5-slider [(value)]="value" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+        </div>
+    </div>
+
+    <div class="text-left filter-title">Ages</div>
     <div class="ages d-flex align-items-center">
         <div class="ages-box" *ngFor="let name of agesArr" (click)="activeAges = name" [class.active]="activeAges === name">
             <span>{{name}}</span>
         </div>
     </div>
 
-    <table class="table" *ngIf="units">
+    <table class="table mt-5" *ngIf="units">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -17,19 +37,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let unit of units">
+        <tr *ngFor="let unit of units" (click)='goDetailPage(unit)' >
             <th scope="row">{{unit.id}}</th>
             <td>{{unit.name}}</td>
             <td>{{unit.age}}</td>
             <td>
-                <ng-container *ngIf="unit.cost">
-          <span *ngFor="let item of objectKeys(unit.cost)">
-            {{item + ': ' + unit.cost[item]}}
-          </span>
+            <ng-container *ngIf="unit.cost">
+                <span *ngFor="let item of objectKeys(unit.cost)">
+                    {{item + ': ' + unit.cost[item]}}
+                </span>
                 </ng-container>
-                <ng-container *ngIf="!unit.cost">
-                    -
-                </ng-container>
+            <ng-container *ngIf="!unit.cost">
+                -
+            </ng-container>
             </td>
         </tr>
         </tbody>

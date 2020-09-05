@@ -1,1 +1,88 @@
-<p>unit-detail works!</p>
+<div class="text-center unit-detail">
+    <div class="title">Unit Detail</div>
+
+    <!--<table class="table mt-5" *ngIf="unit">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let unit of units" (click)='goDetailPage(unit)' >
+            <th scope="row">{{unit.id}}</th>
+            <td>{{unit.name}}</td>
+            <td>{{unit.age}}</td>
+            <td>
+                <ng-container *ngIf="unit.cost">
+          <span *ngFor="let item of objectKeys(unit.cost)">
+            {{item + ': ' + unit.cost[item]}}
+          </span>
+                </ng-container>
+                <ng-container *ngIf="!unit.cost">
+                    -
+                </ng-container>
+            </td>
+        </tr>
+        </tbody>
+    </table>-->
+
+    <div *ngIf="unit">
+        <div class="unit-detail-box">
+            <div class="item-name">ID:</div>
+            <div class="item-detail">{{unit.id}}</div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Name:</div>
+            <div class="item-detail">{{unit.name}}</div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Description:</div>
+            <div class="item-detail">{{unit.description}}</div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Min. Required Age:</div>
+            <div class="item-detail">{{unit.age}}</div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Wood Cost:</div>
+            <div class="item-detail">
+                {{unit?.cost?.Wood ? unit.cost.Wood : '-'}}
+            </div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Food Cost:</div>
+            <div class="item-detail">
+                {{unit?.cost?.Food ? unit.cost.Food : '-'}}
+            </div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Gold Cost:</div>
+            <div class="item-detail">
+                {{unit?.cost?.Gold ? unit.cost.Gold : '-'}}
+            </div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Build Time:</div>
+            <div class="item-detail">{{unit.build_time}}</div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Reload Time:</div>
+            <div class="item-detail">{{unit.reload_time}}</div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Hit Point:</div>
+            <div class="item-detail">{{unit.hit_points}}</div>
+        </div>
+        <div class="unit-detail-box">
+            <div class="item-name">Accuracy:</div>
+            <div class="item-detail">{{unit.accuracy}}</div>
+        </div>
+
+    </div>
+    <div class="unit-detail-box" *ngIf="!unit">
+        -
+    </div>
+</div>

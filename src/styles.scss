@@ -13,3 +13,16 @@
   font-weight: 500;
   margin-bottom: 3rem;
 }
+
+.ng5-slider .ng5-slider-pointer {
+  width: 14px!important;
+  height: 14px!important;
+  top: -5px!important;
+  border-radius: 50%!important;
+  &:after {
+    width: 6px!important;
+    height: 6px!important;
+    top: 4px!important;
+    left: 4px!important;
+  }
+}

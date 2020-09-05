@@ -1,0 +1,22 @@
+.unit-detail {
+  padding-bottom: 50px;
+  .unit-detail-box {
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    text-align: left;
+    border-top: 1px solid #c8c8c8;
+    border-left: 1px solid #c8c8c8;
+    border-right: 1px solid #c8c8c8;
+    &:last-child {
+      border-bottom: 1px solid #c8c8c8;
+    }
+    .item-name {
+      font-weight: 500;
+      width: 200px;
+    }
+    .item-detail {
+      font-weight: normal;
+    }
+  }
+}

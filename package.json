@@ -2,6 +2,7 @@
   "name": "adesso-project",
   "version": "0.0.0",
   "scripts": {
+    "postinstall": "ngcc",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -21,8 +22,11 @@
     "@angular/router": "~10.0.14",
     "@ngrx/store": "^10.0.0",
     "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
     "json-server": "^0.16.1",
-    "tslib": "^2.0.0",
+    "ng5-slider": "^1.2.4",
+    "rxjs": "^6.6.2",
+    "rxjs-compat": "^6.6.2",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
