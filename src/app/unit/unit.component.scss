@@ -21,6 +21,13 @@
       &:nth-child(2) {
         margin: 10px 0;
       }
+      #wood:not(:checked) + label + ng5-slider, #food:not(:checked) + label + ng5-slider, #gold:not(:checked) + label + ng5-slider {
+        opacity: .25;
+        .ng5-slider-pointer-min {
+          cursor: move;
+          color: red;
+        }
+      }
     }
   }
 

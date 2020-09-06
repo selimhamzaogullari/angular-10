@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from "@ngrx/store";
 import {Ng5SliderModule} from "ng5-slider";
 import {unitReducer} from "./unit/state/unit.reducer";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,13 +22,14 @@ import {unitReducer} from "./unit/state/unit.reducer";
     UnitComponent,
     UnitDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    Ng5SliderModule,
-    StoreModule.forRoot({unit: unitReducer})
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        Ng5SliderModule,
+        StoreModule.forRoot({unit: unitReducer}),
+        FormsModule
+    ],
   providers: [UnitService],
   bootstrap: [AppComponent]
 })

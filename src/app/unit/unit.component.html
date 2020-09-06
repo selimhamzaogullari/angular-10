@@ -1,29 +1,32 @@
 <div class="text-center units">
     <div class="title">Units Page</div>
 
-    <div class="text-left filter-title">Costs</div>
-    <div class="costs d-flex align-items-start flex-column">
-        <div class="costs-box">
-            <input id="wood" type="checkbox">
-            <label for="wood">Wood</label>
-            <ng5-slider [(value)]="value" [(highValue)]="maxValue" [options]="options"></ng5-slider>
-        </div>
-        <div class="costs-box">
-            <input id="food" type="checkbox">
-            <label for="food">Food</label>
-            <ng5-slider [(value)]="value" [(highValue)]="maxValue" [options]="options"></ng5-slider>
-        </div>
-        <div class="costs-box">
-            <input id="gold" type="checkbox">
-            <label for="gold">Gold</label>
-            <ng5-slider [(value)]="value" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+    <div class="text-left filter-title">Ages</div>
+    <div class="ages d-flex align-items-center">
+        <div class="ages-box" *ngFor="let name of agesArr" (click)="changeAges(name)" [class.active]="activeAges === name">
+            <span>{{name}}</span>
         </div>
     </div>
 
-    <div class="text-left filter-title">Ages</div>
-    <div class="ages d-flex align-items-center">
-        <div class="ages-box" *ngFor="let name of agesArr" (click)="activeAges = name" [class.active]="activeAges === name">
-            <span>{{name}}</span>
+    <div class="text-left filter-title">Costs</div>
+    <div class="costs d-flex align-items-start flex-column">
+        <div class="costs-box wood-box">
+            <input id="wood" type="checkbox" [(ngModel)]="this.woodProp.active" (change)="onChangeEnable('wood')">
+            <label for="wood">Wood</label>
+            <ng5-slider [(value)]="woodProp.value" [(highValue)]="woodProp.maxValue" [options]="woodProp.options"
+                        (valueChange)="sliderValueChange($event, 'wood')" (highValueChange)="sliderMaxValueChange($event, 'wood')"></ng5-slider>
+        </div>
+        <div class="costs-box food-box">
+            <input id="food" type="checkbox" [(ngModel)]="this.foodProp.active" (change)="onChangeEnable('food')">
+            <label for="food">Food</label>
+            <ng5-slider [(value)]="foodProp.value" [(highValue)]="foodProp.maxValue" [options]="foodProp.options"
+                        (valueChange)="sliderValueChange($event, 'food')" (highValueChange)="sliderMaxValueChange($event, 'food')"></ng5-slider>
+        </div>
+        <div class="costs-box gold-box">
+            <input id="gold" type="checkbox" [(ngModel)]="this.goldProp.active" (change)="onChangeEnable('gold')">
+            <label for="gold">Gold</label>
+            <ng5-slider [(value)]="goldProp.value" [(highValue)]="goldProp.maxValue" [options]="goldProp.options"
+                        (valueChange)="sliderValueChange($event, 'gold')" (highValueChange)="sliderMaxValueChange($event, 'gold')"></ng5-slider>
         </div>
     </div>
 
@@ -37,7 +40,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let unit of units" (click)='goDetailPage(unit)' >
+        <tr *ngFor="let unit of _units" (click)='goDetailPage(unit)' >
             <th scope="row">{{unit.id}}</th>
             <td>{{unit.name}}</td>
             <td>{{unit.age}}</td>
